@@ -1,0 +1,96 @@
+@server=http://localhost:4004
+@username=alice
+@password=
+
+
+### Books
+# @name Books_GET
+GET {{server}}/odata/v4/catalog/Books
+Authorization: Basic {{username}}:{{password}}
+
+
+### Books
+# @name Books_POST
+POST {{server}}/odata/v4/catalog/Books
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  # "ID": "26532801-7d08-42ad-8211-429e15c72b6b",
+  "title": "title-26532801",
+  "price": 7863031.72,
+  "stock": 79,
+  "genre": "genre-26532801",
+  "publisher": "publisher-26532801",
+  "language": "e-26532801",
+  # "createdAt": "2017-01-27T15:00:00.000Z",
+  # "createdBy": "createdBy.fsou9@example.com",
+  # "modifiedAt": "2016-01-30T15:00:00.000Z",
+  # "modifiedBy": "modifiedBy.fsou9@example.org",
+  "note": "note-26532801",
+  "isDeleted": false
+}
+
+
+### Books modifiedAt will be updated to the latest time. 
+# @name Books_PATCH
+PATCH {{server}}/odata/v4/catalog/Books/334e810f-2127-4cf2-93a3-6a56741f30c6
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "price": 78
+}
+
+
+### Books
+# @name Books_DELETE
+DELETE {{server}}/odata/v4/catalog/Books/3be2fb90-7123-4fe3-9a64-aa1139f2cc87
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+
+### Orders
+# @name Orders_GET
+GET {{server}}/odata/v4/catalog/Orders
+Authorization: Basic {{username}}:{{password}}
+
+
+### Orders
+# @name Orders_POST
+POST {{server}}/odata/v4/catalog/Orders
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  # "ID": "15151618-cc38-4104-b129-625f7726aa14",
+  "amount": 11,
+  # "status": "pending",
+  "book": {
+    "ID": "2318d22d-0775-4c1d-936a-185ffb8fe3a4"
+  },
+  # "createdAt": "2018-04-13T15:00:00.000Z",
+  # "createdBy": "createdBy.90r2a@example.net",
+  # "modifiedAt": "2014-12-31T15:00:00.000Z",
+  # "modifiedBy": "modifiedBy.90r2a@example.net",
+  "validFrom": "2020-06-10T15:00:00.000Z",
+  "validTo": "2034-01-02T15:00:00.000Z"
+}
+
+
+### Orders
+# @name Orders_PATCH
+PATCH {{server}}/odata/v4/catalog/Orders/89e6085c-e878-4899-96b8-9642500442cf
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "status": "Delivery"
+}
+
+
+### Orders
+# @name Orders_DELETE
+DELETE {{server}}/odata/v4/catalog/Orders/15151618-cc38-4104-b129-625f7726aa14
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
